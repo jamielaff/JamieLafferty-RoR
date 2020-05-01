@@ -10,3 +10,6 @@ development:
 test:
   <<: *default
   database: jamie_blog_test
+
+production:
+  database: ENV{"DATABASE_URL"}
