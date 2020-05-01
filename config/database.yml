@@ -12,4 +12,4 @@ test:
   database: jamie_blog_test
 
 production:
-  database: ENV{"DATABASE_URL"}
+  url: <%= ENV["DATABASE_URL"] %>
