@@ -6,4 +6,12 @@
 </div>
 <h4 align="center"><%= @user.username %>'s articles</h4>
 
+<div align="center">
+    <%= will_paginate @user_articles %>
+</div>
+
 <%= render partial: 'shared/article', locals: { obj: @user.articles } %>
+
+<div align="center">
+    <%= will_paginate @user_articles %>
+</div>
