@@ -2,6 +2,8 @@
 
 class UsersController < ApplicationController
 
+  skip_before_action :authorized, only: [:new, :create]
+
   def index
     @users = User.all
   end
@@ -14,6 +16,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "Welcome to the my test blog, #{@user.username}"
+      session[:user_id] = @user.id
       redirect_to articles_path
     else
       render 'new'
@@ -36,6 +39,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user_articles = @user.articles.paginate(page: params[:page], per_page: 5)
   end
 
   private

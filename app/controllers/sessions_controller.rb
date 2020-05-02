@@ -1,15 +1,19 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
+
+  skip_before_action :authorized, only: [:new, :create, :welcome]
+
   def new
+    @user = User.new
   end
 
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user&.authenticate(params[:session][:password])
-      session[:user_id] = user.id
+    @user = User.find_by(username: params[:username])
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
       flash[:success] = 'You have logged in'
-      redirect_to users_path(user)
+      redirect_to articles_path
     else
       flash.now[:danger] = 'There was something wrong with your login information'
       render 'new'
