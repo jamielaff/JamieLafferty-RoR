@@ -1,13 +1,9 @@
 <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
         <h1>Welcome to <%= @user.username %>'s page</h1>
+        <%= gravatar_for @user, size: 50 %>
     </div>
-</div>
-<div class="row">
- <div class="col-md-4 col-md-offset-4 center">
-  <%= gravatar_for @user, size: 150 %>
- </div>
 </div>
 <h4 align="center"><%= @user.username %>'s articles</h4>
 
-<%= render 'shared/article', locals: { obj: @user.articles } %>
+<%= render partial: 'shared/article', locals: { obj: @user.articles } %>
