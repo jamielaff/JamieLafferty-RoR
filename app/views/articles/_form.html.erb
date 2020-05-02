@@ -1,4 +1,4 @@
-<%= render 'shared/errors', obj: @article %>
+<%= render partial: 'shared/errors', locals: { obj: @article } %>
 
 <div class="row">
     <div class="col-xs-12">
@@ -21,7 +21,7 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <%= f.submit class: 'btn btn-primary btn-large' %>
+                <%= f.submit class: 'btn btn-success btn-large' %>
             </div>
         </div>
         <% end %>
