@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+        <h1>Welcome to <%= @user.username %>'s page</h1>
+        <%= gravatar_for @user, size: 50 %>
+    </div>
+</div>
+<h4 align="center"><%= @user.username %>'s articles</h4>
+
+<div align="center">
+    <%= will_paginate @user_articles %>
+</div>
+
+<%= render partial: 'shared/article', locals: { obj: @user.articles } %>
+
+<div align="center">
+    <%= will_paginate @user_articles %>
+</div>
