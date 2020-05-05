@@ -55,7 +55,7 @@ class ArticlesController < ApplicationController
   end
 
   def authorised_for_article_action
-    if @article.user != current_user
+    unless @article.owned_by?(current_user)
       flash[:danger] = "You are not authorised to perform that action"
       redirect_to root_path
     end
