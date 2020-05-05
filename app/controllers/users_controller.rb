@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-
-  before_action :authorised, only: [:edit]
+  skip_before_action :authorised, only: [:index, :new, :create, :show]
 
   def index
     @users = User.all
@@ -24,10 +23,14 @@ class UsersController < ApplicationController
   end
 
   def edit
+    # Note for future
+    # @user = current_user
     @user = User.find(params[:id])
   end
 
   def update
+    # Note for future
+    # @user = current_user
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:success] = 'Your account was updated successfully'

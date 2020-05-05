@@ -1,7 +1,6 @@
 class PagesController < ApplicationController
-	def index
-	end
+	skip_before_action :authorised, only: [:index]
 
-	def about
+	def index
 	end
 end
