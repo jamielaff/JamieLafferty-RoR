@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
 
-  before_action :authorized, only: [:edit]
+  before_action :authorised, only: [:edit]
 
   def index
     @users = User.all

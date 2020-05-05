@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:edit, :update, :show, :destroy]
-  before_action :authorized_for_article_action, only: [:edit, :update, :destroy]
-  before_action :authorized, except: [:index, :show]
+  before_action :authorised_for_article_action, only: [:edit, :update, :destroy]
+  before_action :authorised, except: [:index, :show]
 
   def index
     @articles = Article.paginate(page: params[:page], per_page: 5)
@@ -54,9 +54,9 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
-  def authorized_for_article_action
+  def authorised_for_article_action
     if @article.user != current_user
-      flash[:danger] = "You are not authorized to perform that action"
+      flash[:danger] = "You are not authorised to perform that action"
       redirect_to root_path
     end
   end
