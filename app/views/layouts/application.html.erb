@@ -8,8 +8,12 @@
   </head>
 
   <body>
-    <%= render 'layouts/navigation' %>
-    <%= render 'shared/messages' %>
+    <% if request.subdomain == 'blog' %>
+      <%= render partial: 'layouts/navigation_blog' %>
+    <% else %>
+      <%= render partial: 'layouts/navigation' %>
+    <% end %>
+    <%= render partial: 'shared/messages' %>
     <%= yield %>
   </body>
 </html>
