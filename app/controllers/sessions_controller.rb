@@ -12,10 +12,14 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      flash[:success] = 'You have logged in'
+      if @user.is_admin
+        flash[:danger] = "You have logged in as a site admin, use with care"
+      else
+        flash[:success] = "You have logged in"
+      end
       redirect_to articles_path
     else
-      flash.now[:danger] = 'There was something wrong with your login information'
+      flash.now[:danger] = "There was something wrong with your login information"
       render 'new'
     end
    end
