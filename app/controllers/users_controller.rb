@@ -56,7 +56,7 @@ class UsersController < ApplicationController
   end
 
   def authorised_for_user_actions
-    unless @user == current_user
+    unless current_user = User.find(params[:id])
       flash[:danger] = "You are not authorised to perform that action"
       redirect_to root_path
     end
