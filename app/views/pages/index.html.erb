@@ -1,5 +1,13 @@
 <div class="col-xs-8 col-xs-offset-2">
-    <h1>Welcome to Jamie Lafferty</h1>
-    <p>This is a work-in-progress site I am building in Ruby on Rails.</p>
-    <p>I started building this on 2nd May 2020 in my spare time - watch this space</p>
+    <h1>Jamie Lafferty</h1>
+    <p>I am an ambitious, highly-skilled software development professional with more than 8 years experience in software design, development and integration. My roles have enabled me to expand my skills in web systems development, real-time application development and maintenance, integrating with high-profile payment systems, embedded software development, application programming and now Ruby on Rails.</p>
+    <p>I have created this site in order to learn Ruby on Rails in my spare time, as this is something I have been extremely interested in learning.</p>
+    <p>This project has full CI/CD using Heroku & Codeship.</p>
+    <p>Below is a living TIL (Today I Learned) history of my journey into the world of Ruby.</p>
+</div>
+
+<%= render partial: 'shared/article', locals: { obj: @articles } %>
+
+<div align="center">
+  <%= will_paginate @articles %>
 </div>
