@@ -49,4 +49,28 @@ RSpec.feature Article, type: :model do
       expect(Article.by_admin.first.title).to eq ("Admin title")
     end
   end
+
+  describe "article owner" do
+    it "owned by specific user" do
+      user1          = User.new
+      user1.username = "user1"
+      user1.email    = "user1@email.com"
+      user1.password = "password"
+      user1.save
+      
+      user2            = User.new
+      user2.username   = "user2"
+      user2.email      = "user2@email.com"
+      user2.password   = "password"
+      user2.save
+
+      article             = Article.new
+      article.title       = "Title"
+      article.description = "Description 123"
+      article.user        = user2
+      article.save
+
+      expect(Article.first.user).to eq (user2)
+    end
+  end
 end
