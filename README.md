@@ -9,5 +9,5 @@ I am upskilling and learning this language myself in my spare time, to hopefully
   
 During this project, I have also setup my first CI/CD. This is using Codeship & Heroku, continuously deploying a successful master branch build to production (no other pipelines as this is using the free/hobby tiers).  
   
-This is available on my website jamielafferty.co.uk  
+This is available on my website www.jamielafferty.co.uk  
 This will become my living CV.  
