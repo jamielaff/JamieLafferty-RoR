@@ -1,5 +1,5 @@
-# README  
-
+# README  [![Codeship Status for jamielaff/JamieLafferty-RoR](https://app.codeship.com/projects/8cd341a0-6de3-0138-89d3-728552e95858/status?branch=master)](https://app.codeship.com/projects/394937)
+  
 This is a small blog site I created with the tutorials: 
 * https://medium.com/@deallen7/ruby-on-rails-app-build-blog-3d9975a999ae  
 * https://levelup.gitconnected.com/simple-authentication-guide-with-ruby-on-rails-16a6255f0be8  
